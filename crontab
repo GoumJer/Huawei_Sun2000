@@ -1,0 +1,6 @@
+# Collect data from Huawei
+   */5   *    *    *    *     /home/pi/huawei-solar/HuaweiSolar_API.sh RealTime >/dev/null 2>&1
+   7     *    *    *    *     /home/pi/huawei-solar/HuaweiSolar_API.sh Hour     >/dev/null 2>&1
+   8     0    *    *    *     /home/pi/huawei-solar/HuaweiSolar_API.sh Day      >/dev/null 2>&1
+   9     0    *    *    *     /home/pi/huawei-solar/HuaweiSolar_API.sh Year     >/dev/null 2>&1
+
