@@ -51,4 +51,7 @@ pi@raspberry-4:~/huawei-solar $ ./HuaweiSolar\_API.sh RealTime
 }
 
 pi@raspberry-4:~/huawei-solar $
+   
+If testing gives no errors, you can use the entries in the file crontab as inspiration to automate regular updates to Domoticz.
+
 
