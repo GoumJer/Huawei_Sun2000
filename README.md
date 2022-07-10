@@ -2,7 +2,7 @@ Colleting the data from your Huawei SUN2000 inverter into Domoticz can be done, 
 
 1. **Try to get yourself a developers account for the data which is collecting. This request MUST be submitted by the company who installed your converter.**
 
-   Send an email to "eu\_inverter\_support <at> huawei.com" with the following:
+   Send an email to "eu\_inverter\_support at huawei.com" with the following:
 
    I hereby request an openAPI user account to access the data from my inverter through the new FusionSolar API:
    System name: XXXXXXXXXXXXXXXXXX (serial no)
