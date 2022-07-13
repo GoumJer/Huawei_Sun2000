@@ -1,4 +1,4 @@
-Colleting the data from your Huawei SUN2000 inverter into Domoticz can be done, but it requires some work
+Colleting the data from your Huawei SUN2000 inverter into Domoticz can be done, but it requires some work :-).
 
 1. **Try to get yourself a developers account for the data which is collecting. This request MUST be submitted by the company who installed your converter.**
 
@@ -25,7 +25,9 @@ To get this working take the following steps:
   - “Zonnepanelen lopende maand”, type general, subtype custom sensor
 - Still in Domoticz, create a user variable named “Huawei\_XSRF\_token\_epoch”, type string
 - Save the 2 attached files (HuaweiSolar.env & HuaweiSolar\_API.sh) in /home/pi/scripts/Huawei-solar
-- Modify the file HuaweiSolar.env to suit your environment, I gues they eed no extra infomormation 😊
+- Modify the file HuaweiSolar.env to suit your environment, additional information is in the file.
+  Some extra information about the Huawei section: userName and systemcode you will receive from Huawei. The station code needs (only once) to be retreived from Huawei using postman (or similar). Please see point 5 (Interface of Plant List) in this document: https://forum.huawei.com/enterprise/en/communicate-with-fusionsolar-through-an-openapi-account/thread/591478-100027 how to retreive this station code
+  
 - Make the script executable: sudo chmod 755 HuaweiSolar.env
 
 When all this is done, you’re ready to test, run the script with the RealTime parameter and review the output. If any error occurs, you can add the “Y” (without quotes) as second parameter to enable debug information.
@@ -53,5 +55,7 @@ pi@raspberry-4:~/huawei-solar $ ./HuaweiSolar\_API.sh RealTime
 pi@raspberry-4:~/huawei-solar $
    
 If testing gives no errors, you can use the entries in the file crontab as inspiration to automate regular updates to Domoticz.
+
+Note: If you do not want to send (day/month/year) data directly to influx just only run the script every 5 minutes with the RealTime parameter which will send data to Domoticz only
 
 
