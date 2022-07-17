@@ -1,0 +1,9 @@
+2020-07-17
+Based on feedback:
+- Added the requirement for jq in documentation
+- Added missing last.token file which is required to store the token
+- Added the get_token.sh script to refresh the token when required
+- Added the SetUp parameter to retreive StationCode from Huawei
+- Extended the ReadMe
+
+2022-07-04  First release
