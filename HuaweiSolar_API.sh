@@ -44,7 +44,7 @@ CheckToken () {
   Echo myTokenAge: $myTokenAge seconds
   if [ $myTokenAge -gt 1500 ]
     then
-    Echo "-----"
+    Echo "-----" 
     Echo "Username: "$userName
     Echo "SystemCode: "$systemCode
     Echo "Token is > 25 minutes old, refresh required"
@@ -52,11 +52,11 @@ CheckToken () {
     $mydir/get_token.sh
     myToken=$(cat $myTokenFile)
     Echo "New token: "$myToken
-    if [[ ! $myToken ]];
-      then
+    if [[ ! $myToken ]]; 
+      then 
       Echo "No token available"
       exit
-    fi
+    fi   
     echo $myToken >$myTokenFile
     # Write new timestamp to Domoticz
     curl "$myDomoticzURL/json.htm?type=command&param=updateuservariable&vname=$myDomoticzHuaweiTokenTimeStampName&vtype=2&vvalue=$myEpoch"
@@ -75,9 +75,23 @@ BuildHeader () {
   Echo "Data: "$myHeaderData
 }
 
+
+# Setup
+#############################
+SetUp () {
+  Echo ======
+  Echo "Existing token: "$myToken
+  Echo "StationCode: "$stationCode
+
+  curl -s -X POST -H "CONTENT-Type:application/json"  -H "XSRF-TOKEN:$myToken"  $baseURL/getStationList > $mydir/stationslist.$$
+  cat $mydir/stationslist.$$|jq '.data[]'
+}
+
+
+
 # Get real time statistics
 ###########################
-RealTime () {
+RealTime () { 
   Echo ======
   Echo "Existing token: "$myToken
   Echo "StationCode: "$stationCode
@@ -92,7 +106,7 @@ RealTime () {
 
 # Get Hourly statistics
 ###########################
-Hourly () {
+Hourly () { 
   Echo ======
   Echo "Existing token: "$myToken
   Echo "Header: "$myHeaderData
@@ -115,7 +129,7 @@ Hourly () {
 
 # Get Daily statistics
 ###########################
-Daily () {
+Daily () { 
   Echo ======
   Echo "Existing token: "$myToken
   Echo "Header: "$myHeaderData
@@ -139,7 +153,7 @@ Daily () {
 
 # Get Yearly statistics
 ###########################
-Yearly () {
+Yearly () { 
   Echo ======
   Echo "Existing token: "$myToken
   Echo "Header: "$myHeaderData
@@ -200,6 +214,9 @@ case $1 in
     ;;
   Year)
     Yearly
+    ;;
+  SetUp)
+    SetUp
     ;;
   *)
     echo "Unknowm parameter (RealTime, Hour, Day, Year)"
