@@ -46,7 +46,7 @@ To get this working take the following steps:
   > sudo chmod 755 HuaweiSolar\_API.env
 
 - Make the file last_token writable
-  > sudo chmod 644 HuaweiSolar\last.token
+  > sudo chmod 644 last.token
 
 - Modify the file get_token.sh to be able to retreive a fresh token when required
   Against all practices this script has a hardcoded password, I have not been able to use this from a variable. Any good suggestion is welcome.
