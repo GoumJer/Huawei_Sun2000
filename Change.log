@@ -1,4 +1,8 @@
-2020-07-17
+2023-03-03
+- Removed some clutter from HuaweiSolar_API.sh script
+- Small cleanup in REAME.md file
+
+2022-07-17
 Based on feedback:
 - Added the requirement for jq in documentation
 - Added missing last.token file which is required to store the token
